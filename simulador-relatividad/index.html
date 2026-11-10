@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laboratorio de relatividad especial</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<main>
+  <header class="intro">
+    <p class="tag">Física moderna · laboratorio interactivo</p>
+    <h1>¿Qué le pasa al tiempo cuando viajas muy rápido?</h1>
+    <p class="lead">Mueve los controles y mira cómo cambian el tiempo y la longitud de una nave que viaja cerca de la velocidad de la luz, comparando lo que miden la nave y la Tierra.</p>
+  </header>
+
+  <div class="grid">
+    <section class="card">
+      <h2>La nave en movimiento</h2>
+      <canvas id="space" class="space" role="img" aria-label="Animación de una nave en movimiento respecto de la Tierra"></canvas>
+      <p class="hint">Es una animación ilustrativa: el movimiento está acelerado para que se note y no representa distancias ni tiempos a escala.</p>
+      <div class="buttons">
+        <button id="pause" type="button">Pausar</button>
+        <button id="reset" type="button" class="secondary">Reiniciar valores</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Tú decides el viaje</h2>
+
+      <div class="control">
+        <label for="speed">Velocidad relativa <span class="value" id="speedVal">0.80 c</span></label>
+        <input id="speed" type="range" min="0" max="0.99" step="0.01" value="0.8">
+        <div class="ends"><span>0 c</span><span>0.99 c</span></div>
+      </div>
+
+      <div class="control">
+        <label for="time">Tiempo propio en la nave <span class="value" id="timeVal">10 años</span></label>
+        <input id="time" type="range" min="1" max="30" step="1" value="10">
+        <div class="ends"><span>1 año</span><span>30 años</span></div>
+      </div>
+
+      <div class="control">
+        <label for="length">Longitud propia de la nave <span class="value" id="lengthVal">100 m</span></label>
+        <input id="length" type="range" min="20" max="300" step="10" value="100">
+        <div class="ends"><span>20 m</span><span>300 m</span></div>
+      </div>
+
+      <p class="note hint">Se supone movimiento recto y a velocidad constante, con la nave apuntando en la dirección del viaje.</p>
+    </section>
+
+    <section class="card wide">
+      <h2>Lo que mide cada quien</h2>
+      <div class="results">
+        <div class="stat ship"><small>Tiempo propio, en la nave</small><strong id="shipTime">10.00 años</strong></div>
+        <div class="stat earth"><small>Tiempo transcurrido, en la Tierra</small><strong id="earthTime">16.67 años</strong></div>
+        <div class="stat"><small>Factor de Lorentz (γ)</small><strong id="gamma">1.667</strong></div>
+        <div class="stat"><small>Longitud observada desde la Tierra</small><strong id="contracted">60.00 m</strong></div>
+      </div>
+      <p id="explanation" class="explanation" aria-live="polite"></p>
+    </section>
+
+    <section class="card wide">
+      <h2>Cómo crece γ con la velocidad</h2>
+      <canvas id="chart" class="graph" role="img" aria-label="Gráfica del factor de Lorentz según la velocidad relativa"></canvas>
+      <p class="hint">El punto amarillo marca la velocidad que elegiste. Cerca de c, γ se dispara. El eje vertical muestra γ de 1 a 8.</p>
+    </section>
+
+    <section class="card wide">
+      <h2>Las fórmulas detrás</h2>
+      <div class="formula">γ = 1 / √(1 − v²/c²)</div>
+      <div class="formula">Δt = γ · Δτ</div>
+      <div class="formula">L = L₀ / γ</div>
+      <p>Δτ es el tiempo que marca un reloj que viaja con la nave. Δt es el tiempo que mide la Tierra entre esos mismos dos eventos. L₀ es la longitud de la nave en reposo, y L es su longitud medida desde la Tierra en un mismo instante.</p>
+      <p class="note">Ojo: estas fórmulas no dicen que alguien vea literalmente un reloj ajeno avanzar a ese ritmo. Para comparar tiempos y longitudes hay que fijar los eventos y el sistema de referencia. El modelo no incluye aceleración, viajes de ida y vuelta ni los efectos ópticos de la propagación de la luz.</p>
+    </section>
+  </div>
+
+  <footer>Proyecto educativo de Física moderna · HTML, CSS y JavaScript · Funciona sin conexión a Internet</footer>
+</main>
+<script src="js/script.js"></script>
+</body>
+</html>
